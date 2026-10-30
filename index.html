@@ -1,296 +1,169 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recherchez une salle municipale sur Agora.">
 
-  <title>Trouver une salle - Agora</title>
+    <title>Trouver une salle - Agora</title>
 
-  <link rel="icon" type="image/svg+xml" href="/icones/batiment.svg" />
+    <link rel="icon" type="image/svg+xml" href="/icones/batiment.svg">
 
-  <!-- Police Public Sans (Google Fonts), graisses 400, 600 et 700 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
-  />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="stylesheet" href="/style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-  <script type="module" src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/main.js"></script>
 </head>
 
 <body>
 
-  <!-- Lien d'évitement pour l'accessibilité -->
-  <a href="#contenu-principal" class="lien-evitement">
-    Aller au contenu
-  </a>
+    <a href="#contenu-principal" class="lien-evitement">
+        Aller au contenu principal
+    </a>
 
-  <!-- ========================================
-       EN-TÊTE
-  ======================================== -->
+    <header class="entete">
 
-  <header>
-    <div class="entete">
+        <button
+            type="button"
+            class="bouton-menu"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="navigation-principal"
+        >
+            <img src="/icones/menu.svg" alt="">
+        </button>
 
-      <button
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="navigation-principal"
-      >
-        <img src="/icones/menu.svg" alt="" />
-      </button>
+        <a href="/" class="logo">
+            <img src="/icones/batiment.svg" alt="">
+            <span>Agora</span>
+        </a>
 
-      <a href="/" aria-label="Agora, accueil">
-        <img src="/icones/batiment.svg" alt="" />
-        <span>Agora</span>
-      </a>
-
-      <nav id="navigation-principal" aria-label="Navigation principale">
-        <ul>
-          <li>
-            <a href="/" aria-current="page">Les salles</a>
-          </li>
-
-          <li>
-            <a href="#">Mes demandes</a>
-          </li>
-        </ul>
-      </nav>
-
-      <a href="#" aria-label="Se connecter">
-        <img src="/icones/utilisateur.svg" alt="" />
-      </a>
-
-    </div>
-  </header>
-
-  <!-- ========================================
-       CONTENU PRINCIPAL
-  ======================================== -->
-
-  <main id="contenu-principal">
-
-    <h1>Trouver une salle</h1>
-
-    <!-- ========================================
-         FILTRES DE RECHERCHE
-    ======================================== -->
-
-    <section aria-label="Filtres de recherche">
-
-      <form id="formulaire-filtres" class="formulaire-filtres">
-
-        <h2>
-          <img src="/icones/filtre.svg" alt="" />
-          Filtres
-        </h2>
-
-        <!-- Recherche par nom -->
-        <div class="groupe-filtre">
-
-          <label for="recherche-salle">Rechercher une salle</label>
-
-          <div class="champ-recherche">
-            <img src="/icones/recherche.svg" alt="" />
-
-            <input
-              type="search"
-              id="recherche-salle"
-              name="q"
-              placeholder="Rechercher une salle"
-            />
-          </div>
-
-        </div>
-
-        <!-- Filtre par quartier -->
-        <div class="groupe-filtre">
-
-          <label for="quartier">Quartier</label>
-
-          <select id="quartier" name="quartier">
-            <option value="">Tous les quartiers</option>
-            <option value="Centre-ville">Centre-ville</option>
-            <option value="Les Tilleuls">Les Tilleuls</option>
-            <option value="Bellevue">Bellevue</option>
-            <option value="Port-Neuf">Port-Neuf</option>
-            <option value="Saint-Martin">Saint-Martin</option>
-          </select>
-
-        </div>
-
-        <!-- Filtre par capacité -->
-        <div class="groupe-filtre">
-
-          <label for="capacite-minimale">Capacité minimale</label>
-
-          <input
-            type="number"
-            id="capacite-minimale"
-            name="capaciteMin"
-            min="1"
-            placeholder="Ex. 50"
-          />
-
-        </div>
-
-        <!-- Filtre par équipements -->
-        <fieldset>
-
-          <legend>Équipements</legend>
-
-          <div>
-            <input
-              type="checkbox"
-              id="equipement-pmr"
-              name="equipements"
-              value="PMR"
-            />
-            <label for="equipement-pmr">PMR</label>
-          </div>
-
-          <div>
-            <input
-              type="checkbox"
-              id="equipement-cuisine"
-              name="equipements"
-              value="CUISINE"
-            />
-            <label for="equipement-cuisine">Cuisine</label>
-          </div>
-
-          <div>
-            <input
-              type="checkbox"
-              id="equipement-videoprojecteur"
-              name="equipements"
-              value="VIDEOPROJECTEUR"
-            />
-            <label for="equipement-videoprojecteur">Vidéoprojecteur</label>
-          </div>
-
-          <div>
-            <input
-              type="checkbox"
-              id="equipement-scene"
-              name="equipements"
-              value="SCENE"
-            />
-            <label for="equipement-scene">Scène</label>
-          </div>
-
-          <div>
-            <input
-              type="checkbox"
-              id="equipement-parking"
-              name="equipements"
-              value="PARKING"
-            />
-            <label for="equipement-parking">Parking</label>
-          </div>
-
-        </fieldset>
-
-      </form>
-
-    </section>
-
-    <!-- ========================================
-         RÉSULTATS DES SALLES
-    ======================================== -->
-
-    <section aria-label="Résultats des salles">
-
-      <p id="nombres-salles" role="status" aria-live="polite">
-        12 salles
-      </p>
-
-      <div id="liste-salle" class="liste-salles">
-
-        <!-- Carte d'une salle -->
-        <article class="carte-salle">
-
-          <!-- Illustration -->
-          <div>
-            <img src="/icones/batiment.svg" alt="" />
-          </div>
-
-          <!-- Informations -->
-          <div>
-
-            <h2>Salle des fêtes Jean-Moulin</h2>
-
-            <p>
-              <img src="/icones/lieu.svg" alt="" />
-              Centre-ville
-            </p>
-
-            <p>
-              <img src="/icones/personne.svg" alt="" />
-              400 personnes
-            </p>
-
-            <!-- Équipements disponibles -->
+        <nav id="navigation-principal" aria-label="Navigation principale">
             <ul>
-              <li>Scène</li>
-              <li>Cuisine</li>
-              <li>Vidéoprojecteur</li>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/salles">Les salles</a></li>
             </ul>
+        </nav>
 
-            <p>Gratuit pour les associations de Montvert</p>
+        <a href="/profil" class="lien-profil" aria-label="Mon profil">
+            <img src="/icones/personne.svg" alt="">
+        </a>
 
-            <p class="tarif-horaire">
-              60 €/h hors Montvert
+    </header>
+
+    <main id="contenu-principal">
+
+        <h1>Trouver une salle</h1>
+
+        <section aria-label="Filtres de recherche">
+
+            <form id="formulaire-filtres" class="formulaire-filtres">
+
+                <div class="groupe-filtre">
+
+                    <label for="recherche-salle">
+                        Rechercher une salle
+                    </label>
+
+                    <div class="champ-recherche">
+
+                        <img src="/icones/recherche.svg" alt="">
+
+                        <input
+                            type="search"
+                            id="recherche-salle"
+                            name="q"
+                            placeholder="Nom ou description..."
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="groupe-filtre">
+
+                    <label for="quartier">Quartier</label>
+
+                    <select id="quartier" name="quartier">
+                        <option value="">Tous les quartiers</option>
+                    </select>
+
+                </div>
+
+                <div class="groupe-filtre">
+
+                    <label for="capacite-minimale">
+                        Capacité minimale
+                    </label>
+
+                    <input
+                        type="number"
+                        id="capacite-minimale"
+                        name="capaciteMin"
+                        min="1"
+                        placeholder="Nombre de personnes"
+                    >
+
+                </div>
+
+                <fieldset class="groupe-filtre">
+
+                    <legend>Équipements</legend>
+
+                    <div
+                        id="liste-equipements"
+                        class="liste-equipements"
+                    >
+                        <p>Chargement des équipements...</p>
+                    </div>
+
+                </fieldset>
+
+                <button type="reset" class="bouton-reinitialiser">
+                    Réinitialiser les filtres
+                </button>
+
+            </form>
+
+        </section>
+
+        <section aria-label="Résultats des salles">
+
+            <p id="nombres-salles" role="status" aria-live="polite">
+                Chargement des salles...
             </p>
 
-            <!-- Navigation vers la salle -->
-            <a href="/salles/1">
-              Voir la salle Salle des fêtes Jean-Moulin
-            </a>
+            <div id="liste-salle" class="liste-salles">
+                
+            </div>
 
-          </div>
+        </section>
 
-        </article>
+    </main>
 
-      </div>
+    <footer>
 
-    </section>
+        <p>Agora - Les salles municipales de Montvert.</p>
+        <p>Ville de Montvert - Service Vie associative</p>
+        <p>02 43 00 00 00</p>
 
-  </main>
+        <nav aria-label="Navigation de pied de page">
+            <ul>
+                <li><a href="/mentions-legales">Mentions légales</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
 
-  <footer>
-
-    <p>
-      <strong>Agora – Les salles municipales de Montvert</strong>
-    </p>
-
-    <p>
-      Ville de Montvert – Service Vie associative
-    </p>
-
-    <p>02 43 00 00 00</p>
-
-    <nav aria-label="Informations légales">
-
-      <ul>
-        <li>
-          <a href="#">Accessibilité</a>
-        </li>
-
-        <li>
-          <a href="#">Mentions légales</a>
-        </li>
-      </ul>
-
-    </nav>
-
-  </footer>
+    </footer>
 
 </body>
+
 </html>
