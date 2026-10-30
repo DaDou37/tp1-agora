@@ -1,0 +1,69 @@
+/*
+  Agora – variables de la charte graphique.
+  Valeurs tirées de la maquette et de la planche maquettes/Composants.png.
+  Vous écrivez vos règles à la suite de ce bloc (ou dans d'autres fichiers CSS).
+*/
+
+:root {
+  /* Couleurs principales */
+  --couleur-primaire: #1f4e5f; /* bleu pétrole : en-tête, boutons principaux, focus */
+  --couleur-accent: #d9772b; /* ocre : mise en avant */
+  --couleur-texte-sur-accent: #1c1c1c; /* texte foncé sur l'ocre, pour le contraste */
+  --couleur-fond: #f6f4ee; /* fond de page */
+  --couleur-surface: #ffffff; /* cartes, panneaux, en-tête */
+  --couleur-texte: #1c1c1c;
+  --couleur-texte-attenue: #5b6770;
+  --couleur-bordure: #d8d5cc; /* bordure des cartes et des séparateurs */
+  --couleur-bordure-champ: #7c868d; /* bordure des champs de formulaire */
+  --couleur-focus: #1f4e5f; /* bordure et halo de 4 px */
+  --couleur-erreur: #b3261e;
+  --couleur-fond-erreur: #fbe4e1;
+  --couleur-fond-information: #e4ecef;
+  --couleur-fond-neutre: #ecebe6; /* étiquettes d'équipement, squelette */
+
+  /* Statuts des réservations (texte, fond) */
+  --statut-attente-texte: #7a5200;
+  --statut-attente-point: #b7791f;
+  --statut-attente-fond: #fbf1dc;
+  --statut-validee-texte: #1e6b3e;
+  --statut-validee-point: #2e7d4f;
+  --statut-validee-fond: #e3f2e8;
+  --statut-refusee-texte: #b3261e;
+  --statut-refusee-fond: #fbe4e1;
+  --statut-annulee-texte: #5b6770;
+  --statut-annulee-fond: #ecebe6;
+
+  /* Typographie : Public Sans, 16 px de base */
+  --police: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --graisse-normale: 400;
+  --graisse-semi-grasse: 600;
+  --graisse-grasse: 700;
+  --taille-h1: 2rem; /* 32 px, interligne 40 px */
+  --interligne-h1: 2.5rem;
+  --taille-h2: 1.5rem; /* 24 px, interligne 32 px */
+  --interligne-h2: 2rem;
+  --taille-h3: 1.25rem; /* 20 px, interligne 28 px */
+  --interligne-h3: 1.75rem;
+  --taille-corps: 1rem; /* 16 px, interligne 24 px */
+  --interligne-corps: 1.5rem;
+  --taille-petit: 0.875rem; /* 14 px, interligne 20 px */
+  --interligne-petit: 1.25rem;
+  --taille-etiquette: 0.75rem; /* 12 px, interligne 16 px */
+  --interligne-etiquette: 1rem;
+
+  /* Espacements */
+  --espace-1: 0.5rem; /* 8 px */
+  --espace-2: 1rem; /* 16 px */
+  --espace-3: 1.5rem; /* 24 px */
+  --espace-4: 2rem; /* 32 px */
+
+  /* Rayons, ombre, tailles */
+  --rayon-etiquette: 4px;
+  --rayon-bouton: 8px; /* boutons et champs */
+  --rayon-carte: 12px;
+  --rayon-pilule: 999px;
+  --ombre: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --hauteur-bouton: 48px; /* boutons et champs */
+  --cible-minimale: 44px; /* aucune cible tactile plus petite */
+  --largeur-max: 1200px; /* largeur du contenu en desktop */
+}
