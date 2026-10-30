@@ -1,37 +1,195 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agora</title>
-    <link rel="icon" type="image/svg+xml" href="/icones/batiment.svg" />
 
-    <!-- Police Public Sans (Google Fonts), graisses 400, 600 et 700 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agora</title>
+  <link rel="icon" type="image/svg+xml" href="/icones/batiment.svg" />
 
-    <link rel="stylesheet" href="/style.css" />
-    <script type="module" src="/main.js"></script>
-  </head>
-  <body>
-    <!--
-      Écran à intégrer : le catalogue des salles d'Agora.
-      Maquettes : maquettes/Catalogue-mobile.png et maquettes/Catalogue-desktop.png.
-      Valeurs (couleurs, tailles, espacements, états) : maquettes/Composants.png.
+  <!-- Police Public Sans (Google Fonts), graisses 400, 600 et 700 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" />
 
-      De haut en bas, la maquette montre :
-        - l'en-tête (logo, navigation, connexion),
-        - le titre de la page,
-        - le panneau de filtres,
-        - le nombre de salles,
-        - la liste des cartes de salles,
-        - le pied de page.
+  <link rel="stylesheet" href="/style.css" />
+  <script type="module" src="/main.js"></script>
+</head>
 
-      Les icônes de la maquette sont dans public/icones/ (SVG, trait de 2 px).
-    -->
-  </body>
+<body>
+
+  <a href="#contenu-principal" class="lien-evitement">
+    Aller au contenu
+  </a>
+
+  <header>
+    <div class="entete">
+
+      <button type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation-principal">
+        <img src="/icones/menu.svg" alt="" />
+      </button>
+
+      <a href="/" aria-label="Agora,accueil">
+        <img src="/icones/batiment.svg" alt="" />
+        <span>Agora</span>
+      </a>
+
+      <nav id="navigation-principal" aria-label="Navigation principal">
+        <ul>
+          <li>
+            <a href="/" aria-current="page">Les salles</a>
+          </li>
+          <li>
+            <a href="#">Mes demandes</a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="#" aria-label="Se connecter">
+        <img src="/icones/utilisateur.svg" alt="" />
+      </a>
+    </div>
+  </header>
+
+  <main id="contenu-principal">
+
+    <h1>Trouver une salle</h1>
+
+    <section aria-label="Filtres de recherche">
+      <form id="formulaire-filtres">
+
+        <h2>
+          <img src="/icones/filtre.svg" alt="" />
+          Filtres
+        </h2>
+        <div>
+          <label for="recherche-salle">Rechercher une salle</label>
+
+          <div>
+            <img src="/icones/recherche.svg" alt="" />
+
+            <input type="search" id="recherche-salle" name="q" placeholder="Rechercher une salle" />
+          </div>
+        </div>
+        <div>
+          <label for="quartier">Quartier</label>
+
+          <select id="quartier" name="quartier">
+            <option value="">Tous les quartiers</option>
+            <option value="Centre-ville">Centre-ville</option>
+            <option value="Les Tilleuls">Les Tilleuls</option>
+            <option value="Bellevue">Bellevue</option>
+            <option value="Port-Neuf">Port-Neuf</option>
+            <option value="Saint-Martin">Saint-Martin</option>
+          </select>
+        </div>
+        <div>
+          <label for="capacite-minimale">Capacité minimale</label>
+
+          <input type="number" id="capacite-minimale" name="capaciteMin" min="1" placeholder="Ex. 50" />
+        </div>
+
+        <fieldset>
+
+          <legend>Equipement</legend>
+
+          <div>
+            <input type="checkbox" id="equipement-pmr" name="equipements" value="PMR" />
+            <label for="equipement-pmr">PMR</label>
+          </div>
+          <div>
+            <input type="checkbox" id="equipement-cuisine" name="equipements" value="CUISINE" />
+            <label for="equipement-cuisine">Cuisine</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="equipement-videoprojecteur" name="equipements" value="VIDEOPROJECTEUR" />
+            <label for="equipement-videoprojecteur">Vidéoprojecteur</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="equipement-scene" name="equipements" value="SCENE" />
+            <label for="equipement-scene">Scène</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="equipement-parking" name="equipements" value="PARKING" />
+            <label for="equipement-parking">Parking</label>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <section aria-label="Resultat des salles">
+
+      <p id="nombres-salles" role="status" aria-live="polite">
+        12 salles
+      </p>
+
+      <div id="liste-salle">
+
+        <article class="carte-salle">
+
+          <div>
+            <img src="/icones/batiment.svg" alt="" />
+          </div>
+
+          <div>
+            <h2>Salle des fêtes Jean-Moulin</h2>
+
+            <p>
+              <img src="/icones/lieu.svg" alt="" />
+              Centre-ville
+            </p>
+
+            <p>
+              <img src="/icones/personne.svg" alt="" />
+              400 personnes
+            </p>
+
+            <ul>
+              <li>Scène</li>
+              <li>Cuisine</li>
+              <li>Vidéoprojecteur</li>
+            </ul>
+
+            <p>Gratuit pour les associations de Montvert</p>
+            <p>60 €/h hors Montvert</p>
+
+            <a href="/salles/1">
+              Voir la salle Salle des fêtes Jean-Moulin
+            </a>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+  </main>
+  <footer>
+
+    <p>
+      <strong>Agora – Les salles municipales de Montvert</strong>
+    </p>
+
+    <p>
+      Ville de Montvert – Service Vie associative
+    </p>
+
+    <p>02 43 00 00 00</p>
+
+    <nav aria-label="Informations légales">
+      <ul>
+        <li>
+          <a href="#">Accessibilité</a>
+        </li>
+        <li>
+          <a href="#">Mentions légales</a>
+        </li>
+      </ul>
+    </nav>
+
+  </footer>
+</body>
+
 </html>
