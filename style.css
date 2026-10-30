@@ -1,27 +1,27 @@
+
 /*
   Agora – variables de la charte graphique.
   Valeurs tirées de la maquette et de la planche maquettes/Composants.png.
-  Vous écrivez vos règles à la suite de ce bloc (ou dans d'autres fichiers CSS).
 */
 
 :root {
   /* Couleurs principales */
-  --couleur-primaire: #1f4e5f; /* bleu pétrole : en-tête, boutons principaux, focus */
-  --couleur-accent: #d9772b; /* ocre : mise en avant */
-  --couleur-texte-sur-accent: #1c1c1c; /* texte foncé sur l'ocre, pour le contraste */
-  --couleur-fond: #f6f4ee; /* fond de page */
-  --couleur-surface: #ffffff; /* cartes, panneaux, en-tête */
+  --couleur-primaire: #1f4e5f;
+  --couleur-accent: #d9772b;
+  --couleur-texte-sur-accent: #1c1c1c;
+  --couleur-fond: #f6f4ee;
+  --couleur-surface: #ffffff;
   --couleur-texte: #1c1c1c;
   --couleur-texte-attenue: #5b6770;
-  --couleur-bordure: #d8d5cc; /* bordure des cartes et des séparateurs */
-  --couleur-bordure-champ: #7c868d; /* bordure des champs de formulaire */
-  --couleur-focus: #1f4e5f; /* bordure et halo de 4 px */
+  --couleur-bordure: #d8d5cc;
+  --couleur-bordure-champ: #7c868d;
+  --couleur-focus: #1f4e5f;
   --couleur-erreur: #b3261e;
   --couleur-fond-erreur: #fbe4e1;
   --couleur-fond-information: #e4ecef;
-  --couleur-fond-neutre: #ecebe6; /* étiquettes d'équipement, squelette */
+  --couleur-fond-neutre: #ecebe6;
 
-  /* Statuts des réservations (texte, fond) */
+  /* Statuts des réservations */
   --statut-attente-texte: #7a5200;
   --statut-attente-point: #b7791f;
   --statut-attente-fond: #fbf1dc;
@@ -33,37 +33,466 @@
   --statut-annulee-texte: #5b6770;
   --statut-annulee-fond: #ecebe6;
 
-  /* Typographie : Public Sans, 16 px de base */
+  /* Typographie */
   --police: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --graisse-normale: 400;
   --graisse-semi-grasse: 600;
   --graisse-grasse: 700;
-  --taille-h1: 2rem; /* 32 px, interligne 40 px */
+
+  --taille-h1: 2rem;
   --interligne-h1: 2.5rem;
-  --taille-h2: 1.5rem; /* 24 px, interligne 32 px */
+  --taille-h2: 1.5rem;
   --interligne-h2: 2rem;
-  --taille-h3: 1.25rem; /* 20 px, interligne 28 px */
+  --taille-h3: 1.25rem;
   --interligne-h3: 1.75rem;
-  --taille-corps: 1rem; /* 16 px, interligne 24 px */
+  --taille-corps: 1rem;
   --interligne-corps: 1.5rem;
-  --taille-petit: 0.875rem; /* 14 px, interligne 20 px */
+  --taille-petit: 0.875rem;
   --interligne-petit: 1.25rem;
-  --taille-etiquette: 0.75rem; /* 12 px, interligne 16 px */
+  --taille-etiquette: 0.75rem;
   --interligne-etiquette: 1rem;
 
   /* Espacements */
-  --espace-1: 0.5rem; /* 8 px */
-  --espace-2: 1rem; /* 16 px */
-  --espace-3: 1.5rem; /* 24 px */
-  --espace-4: 2rem; /* 32 px */
+  --espace-1: 0.5rem;
+  --espace-2: 1rem;
+  --espace-3: 1.5rem;
+  --espace-4: 2rem;
 
-  /* Rayons, ombre, tailles */
+  /* Rayons, ombre et tailles */
   --rayon-etiquette: 4px;
-  --rayon-bouton: 8px; /* boutons et champs */
+  --rayon-bouton: 8px;
   --rayon-carte: 12px;
   --rayon-pilule: 999px;
   --ombre: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --hauteur-bouton: 48px; /* boutons et champs */
-  --cible-minimale: 44px; /* aucune cible tactile plus petite */
-  --largeur-max: 1200px; /* largeur du contenu en desktop */
+  --hauteur-bouton: 48px;
+  --cible-minimale: 44px;
+  --largeur-max: 1200px;
+}
+
+/* ========================================
+   BASE
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--police);
+  font-size: var(--taille-corps);
+  line-height: var(--interligne-corps);
+  color: var(--couleur-texte);
+  background-color: var(--couleur-fond);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* ========================================
+   LIEN D'ÉVITEMENT
+======================================== */
+
+.lien-evitement {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10;
+  padding: 12px 16px;
+  color: white;
+  background-color: var(--couleur-primaire);
+}
+
+.lien-evitement:focus {
+  top: 16px;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+  background-color: var(--couleur-surface);
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espace-2);
+  min-height: 64px;
+  padding: 8px 16px;
+}
+
+/* Boutons et icônes de l'en-tête */
+
+.entete button,
+.entete > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--cible-minimale);
+  min-height: var(--cible-minimale);
+}
+
+.entete button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.entete img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Logo */
+
+.entete > a:first-of-type {
+  display: flex;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: var(--graisse-grasse);
+  color: var(--couleur-primaire);
+}
+
+/* Navigation mobile */
+
+.entete nav {
+  display: none;
+}
+
+.entete ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================
+   CONTENU PRINCIPAL
+======================================== */
+
+main {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: var(--espace-3) var(--espace-2);
+}
+
+h1 {
+  margin: 0 0 var(--espace-3);
+  font-size: var(--taille-h1);
+  line-height: var(--interligne-h1);
+}
+
+/* ========================================
+   FILTRES
+======================================== */
+
+.formulaire-filtres {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-2);
+  padding: var(--espace-2);
+  background-color: var(--couleur-surface);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-carte);
+  box-shadow: var(--ombre);
+}
+
+.formulaire-filtres h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: var(--taille-h3);
+}
+
+.formulaire-filtres h2 img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Groupes de champs */
+
+.groupe-filtre {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formulaire-filtres label,
+.formulaire-filtres legend {
+  font-weight: var(--graisse-semi-grasse);
+}
+
+/* Champs classiques */
+
+.formulaire-filtres input[type="number"],
+.formulaire-filtres select {
+  width: 100%;
+  min-height: var(--hauteur-bouton);
+  padding: 10px 12px;
+  border: 1px solid var(--couleur-bordure-champ);
+  border-radius: var(--rayon-bouton);
+  background-color: var(--couleur-surface);
+}
+
+/* Champ de recherche avec loupe */
+
+.champ-recherche {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--hauteur-bouton);
+  padding: 0 12px;
+  border: 1px solid var(--couleur-bordure-champ);
+  border-radius: var(--rayon-bouton);
+  background-color: var(--couleur-surface);
+}
+
+.champ-recherche img {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.champ-recherche input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* Équipements */
+
+.formulaire-filtres fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-bouton);
+}
+
+.formulaire-filtres fieldset legend {
+  padding: 0 6px;
+}
+
+.formulaire-filtres fieldset div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formulaire-filtres input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--couleur-primaire);
+}
+
+/* ========================================
+   ACCESSIBILITÉ : FOCUS
+======================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--couleur-focus);
+  outline-offset: 4px;
+}
+
+.champ-recherche:focus-within {
+  outline: 3px solid var(--couleur-focus);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   CARTES DES SALLES
+======================================== */
+
+.liste-salles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espace-2);
+  margin-top: var(--espace-2);
+}
+
+.carte-salle {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--couleur-surface);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon-carte);
+  box-shadow: var(--ombre);
+}
+
+/* Illustration de la salle */
+
+.carte-salle > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  background-color: var(--couleur-fond-information);
+}
+
+.carte-salle > div:first-child img {
+  width: 64px;
+  height: 64px;
+}
+
+/* Informations de la salle */
+
+.carte-salle > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espace-1);
+  flex: 1;
+  padding: var(--espace-2);
+}
+
+.carte-salle h2 {
+  margin: 0;
+  font-size: var(--taille-h3);
+  line-height: var(--interligne-h3);
+}
+
+/* Quartier et capacité */
+
+.carte-salle p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.carte-salle p img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Équipements */
+
+.carte-salle ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carte-salle li {
+  padding: 4px 8px;
+  font-size: var(--taille-petit);
+  background-color: var(--couleur-fond-neutre);
+  border-radius: var(--rayon-etiquette);
+}
+
+/* Tarif */
+
+.carte-salle .tarif-horaire {
+  font-weight: var(--graisse-semi-grasse);
+}
+
+/* Lien vers la salle */
+
+.carte-salle a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--hauteur-bouton);
+  margin-top: auto;
+  padding: 10px;
+  color: white;
+  font-weight: var(--graisse-semi-grasse);
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--couleur-primaire);
+  border-radius: var(--rayon-bouton);
+}
+
+.carte-salle a:hover {
+  background-color: #173b48;
+}
+
+
+/* ========================================
+   PIED DE PAGE
+======================================== */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-1);
+  margin-top: var(--espace-4);
+  padding: var(--espace-3) var(--espace-2);
+  color: var(--couleur-texte);
+  background-color: var(--couleur-surface);
+  border-top: 1px solid var(--couleur-bordure);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espace-2);
+  margin: var(--espace-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer a {
+  color: var(--couleur-primaire);
+}
+
+
+/* RESPONSIVE : TABLETTE ET DESKTOP */
+
+
+@media (min-width: 64em) {
+  main {
+    padding: var(--espace-4) var(--espace-3);
+  }
+
+  .formulaire-filtres {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .formulaire-filtres h2,
+  .formulaire-filtres fieldset {
+    grid-column: 1 / -1;
+  }
+
+  .liste-salles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--espace-3);
+  }
 }

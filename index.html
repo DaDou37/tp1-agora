@@ -1,44 +1,62 @@
+
 <!doctype html>
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agora</title>
+
+  <title>Trouver une salle - Agora</title>
+
   <link rel="icon" type="image/svg+xml" href="/icones/batiment.svg" />
 
   <!-- Police Public Sans (Google Fonts), graisses 400, 600 et 700 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap"
+  />
 
   <link rel="stylesheet" href="/style.css" />
+
   <script type="module" src="/main.js"></script>
 </head>
 
 <body>
 
+  <!-- Lien d'évitement pour l'accessibilité -->
   <a href="#contenu-principal" class="lien-evitement">
     Aller au contenu
   </a>
 
+  <!-- ========================================
+       EN-TÊTE
+  ======================================== -->
+
   <header>
     <div class="entete">
 
-      <button type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation-principal">
+      <button
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="navigation-principal"
+      >
         <img src="/icones/menu.svg" alt="" />
       </button>
 
-      <a href="/" aria-label="Agora,accueil">
+      <a href="/" aria-label="Agora, accueil">
         <img src="/icones/batiment.svg" alt="" />
         <span>Agora</span>
       </a>
 
-      <nav id="navigation-principal" aria-label="Navigation principal">
+      <nav id="navigation-principal" aria-label="Navigation principale">
         <ul>
           <li>
             <a href="/" aria-current="page">Les salles</a>
           </li>
+
           <li>
             <a href="#">Mes demandes</a>
           </li>
@@ -48,30 +66,52 @@
       <a href="#" aria-label="Se connecter">
         <img src="/icones/utilisateur.svg" alt="" />
       </a>
+
     </div>
   </header>
+
+  <!-- ========================================
+       CONTENU PRINCIPAL
+  ======================================== -->
 
   <main id="contenu-principal">
 
     <h1>Trouver une salle</h1>
 
+    <!-- ========================================
+         FILTRES DE RECHERCHE
+    ======================================== -->
+
     <section aria-label="Filtres de recherche">
-      <form id="formulaire-filtres">
+
+      <form id="formulaire-filtres" class="formulaire-filtres">
 
         <h2>
           <img src="/icones/filtre.svg" alt="" />
           Filtres
         </h2>
-        <div>
+
+        <!-- Recherche par nom -->
+        <div class="groupe-filtre">
+
           <label for="recherche-salle">Rechercher une salle</label>
 
-          <div>
+          <div class="champ-recherche">
             <img src="/icones/recherche.svg" alt="" />
 
-            <input type="search" id="recherche-salle" name="q" placeholder="Rechercher une salle" />
+            <input
+              type="search"
+              id="recherche-salle"
+              name="q"
+              placeholder="Rechercher une salle"
+            />
           </div>
+
         </div>
-        <div>
+
+        <!-- Filtre par quartier -->
+        <div class="groupe-filtre">
+
           <label for="quartier">Quartier</label>
 
           <select id="quartier" name="quartier">
@@ -82,59 +122,108 @@
             <option value="Port-Neuf">Port-Neuf</option>
             <option value="Saint-Martin">Saint-Martin</option>
           </select>
+
         </div>
-        <div>
+
+        <!-- Filtre par capacité -->
+        <div class="groupe-filtre">
+
           <label for="capacite-minimale">Capacité minimale</label>
 
-          <input type="number" id="capacite-minimale" name="capaciteMin" min="1" placeholder="Ex. 50" />
+          <input
+            type="number"
+            id="capacite-minimale"
+            name="capaciteMin"
+            min="1"
+            placeholder="Ex. 50"
+          />
+
         </div>
 
+        <!-- Filtre par équipements -->
         <fieldset>
 
-          <legend>Equipement</legend>
+          <legend>Équipements</legend>
 
           <div>
-            <input type="checkbox" id="equipement-pmr" name="equipements" value="PMR" />
+            <input
+              type="checkbox"
+              id="equipement-pmr"
+              name="equipements"
+              value="PMR"
+            />
             <label for="equipement-pmr">PMR</label>
           </div>
+
           <div>
-            <input type="checkbox" id="equipement-cuisine" name="equipements" value="CUISINE" />
+            <input
+              type="checkbox"
+              id="equipement-cuisine"
+              name="equipements"
+              value="CUISINE"
+            />
             <label for="equipement-cuisine">Cuisine</label>
           </div>
 
           <div>
-            <input type="checkbox" id="equipement-videoprojecteur" name="equipements" value="VIDEOPROJECTEUR" />
+            <input
+              type="checkbox"
+              id="equipement-videoprojecteur"
+              name="equipements"
+              value="VIDEOPROJECTEUR"
+            />
             <label for="equipement-videoprojecteur">Vidéoprojecteur</label>
           </div>
 
           <div>
-            <input type="checkbox" id="equipement-scene" name="equipements" value="SCENE" />
+            <input
+              type="checkbox"
+              id="equipement-scene"
+              name="equipements"
+              value="SCENE"
+            />
             <label for="equipement-scene">Scène</label>
           </div>
 
           <div>
-            <input type="checkbox" id="equipement-parking" name="equipements" value="PARKING" />
+            <input
+              type="checkbox"
+              id="equipement-parking"
+              name="equipements"
+              value="PARKING"
+            />
             <label for="equipement-parking">Parking</label>
           </div>
+
         </fieldset>
+
       </form>
+
     </section>
 
-    <section aria-label="Resultat des salles">
+    <!-- ========================================
+         RÉSULTATS DES SALLES
+    ======================================== -->
+
+    <section aria-label="Résultats des salles">
 
       <p id="nombres-salles" role="status" aria-live="polite">
         12 salles
       </p>
 
-      <div id="liste-salle">
+      <div id="liste-salle" class="liste-salles">
 
+        <!-- Carte d'une salle -->
         <article class="carte-salle">
 
+          <!-- Illustration -->
           <div>
             <img src="/icones/batiment.svg" alt="" />
           </div>
 
+          <!-- Informations -->
           <div>
+
             <h2>Salle des fêtes Jean-Moulin</h2>
 
             <p>
@@ -147,6 +236,7 @@
               400 personnes
             </p>
 
+            <!-- Équipements disponibles -->
             <ul>
               <li>Scène</li>
               <li>Cuisine</li>
@@ -154,18 +244,26 @@
             </ul>
 
             <p>Gratuit pour les associations de Montvert</p>
-            <p>60 €/h hors Montvert</p>
 
+            <p class="tarif-horaire">
+              60 €/h hors Montvert
+            </p>
+
+            <!-- Navigation vers la salle -->
             <a href="/salles/1">
               Voir la salle Salle des fêtes Jean-Moulin
             </a>
+
           </div>
 
         </article>
 
       </div>
+
     </section>
+
   </main>
+
   <footer>
 
     <p>
@@ -179,17 +277,20 @@
     <p>02 43 00 00 00</p>
 
     <nav aria-label="Informations légales">
+
       <ul>
         <li>
           <a href="#">Accessibilité</a>
         </li>
+
         <li>
           <a href="#">Mentions légales</a>
         </li>
       </ul>
+
     </nav>
 
   </footer>
-</body>
 
+</body>
 </html>
